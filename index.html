@@ -1,24 +1,106 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title></title>
-	 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<head>
+		<title></title>
+		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-<body>
+	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-<div class="card" style="width: 18rem;">
-  <img src="card.jpg" class="card-img-top" alt="...">
-  <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+	  	<style type="text/css">
 
+	  	.card{
+		  background-color: transparent;
+		  width: 300px;
+		  height: 300px;
+		  perspective: 1000px;
+		}
 
+	  	.flip-card-inner {
+		  position: relative;
+		  width: 100%;
+		  height: 100%;
+		  text-align: center;
+		  transition: transform 0.8s;
+		  transform-style: preserve-3d;
+		}
 
-  
-</div>
-</body>
+		.card:hover .flip-card-inner {
+		  transform: rotateY(180deg);
+		}
+
+		.flip-card-front, .flip-card-back {
+		  position: absolute;
+		  width: 100%;
+		  height: 100%;
+		  backface-visibility: hidden;
+		}
+
+		.flip-card-front {
+		  background-color: #bbb;
+		  color: black;
+		}
+
+		.flip-card-back {
+		  background-color: dodgerblue;
+		  color: white;
+		  transform: rotateY(180deg);
+		}
+	  	</style> 
+	</head>
+	<body>
+
+		
+
+		<div class="container">
+		  <div class="row">
+		    <div class="col-sm">
+		      <div class="card" style="width: 18rem;">
+		 	
+			  	<div class="flip-card-inner">
+				    <div class="flip-card-front">
+				      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
+				    </div>
+				    <div class="flip-card-back">
+				      <h1>Patativa</h1> 
+				      
+				    </div>
+	  			</div>
+		 
+			   </div>
+		    </div>
+		    
+		    <div class="col-sm">
+		      <div class="card" style="width: 18rem;">
+		 	
+		  	<div class="flip-card-inner">
+			    <div class="flip-card-front">
+			      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
+			    </div>
+			    <div class="flip-card-back">
+			      <h1>Patativa</h1> 
+			      
+			    </div>
+  			</div>
+		 
+		</div>
+		    </div>
+		    <div class="col-sm">
+				<div class="card" style="width: 18rem;">
+		 	
+				  	<div class="flip-card-inner">
+					    <div class="flip-card-front">
+					      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
+					    </div>
+					    <div class="flip-card-back">
+					      <h1>Patativa</h1> 
+					      
+					    </div>
+		  			</div>
+		 
+				</div>		    
+			</div>
+		</div>
+	</div>
+
+	</body>
 </html>
