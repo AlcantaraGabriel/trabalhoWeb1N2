@@ -1,202 +1,105 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title></title>
-		 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>web 2</title>
+  <!--biblioteca Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--biblioteca Jquery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--biblioteca Flip -->
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script> 
+  
+  <script>
 
-	  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      $(document).ready(function(){
 
-	  	<style type="text/css">
+      	  /*Habilitando flip para cartas*/
+          $(".card").flip({
+            trigger: 'click'//através do click
+          });
 
-	  	.card{
-		  background-color: transparent;
-		  width: 300px;
-		  height: 300px;
-		  perspective: 1000px;
-		}
+       
 
-	  	.flip-card-inner {
-		  position: relative;
-		  width: 100%;
-		  height: 100%;
-		  text-align: center;
-		  transition: transform 0.8s;
-		  transform-style: preserve-3d;
-		}
+          //Função do clique na classe da imagem
+          $(document).ready(function(){
+				$('.card-img-top').bind('click', function(e){
+					//mouse event fired (element clicked)
+					alert("Clicou na imagem!");
+				});
+			});
 
-		.card:hover .flip-card-inner {
-		  transform: rotateY(180deg);
-		}
+          //Objetivo automatízar a geração de código
 
-		.flip-card-front, .flip-card-back {
-		  position: absolute;
-		  width: 100%;
-		  height: 100%;
-		  backface-visibility: hidden;
-		}
+          //Função de sorteamento de imagens
+          		//falta implementar
 
-		.flip-card-front {
-		  background-color: #bbb;
-		  color: black;
-		}
+          //Função de verificar duas imagens iguais 
+          		//falta implementar 
 
-		.flip-card-back {
-		  background-color: dodgerblue;
-		  color: white;
-		  transform: rotateY(180deg);
-		}
-	  	</style> 
-	</head>
-	<body>
+          //Outras funções
 
-		
+      });
+  </script>
 
-		<div class="container">
-		  <div class="row">
-		    <div class="col-sm">
-		      <div class="card" style="width: 18rem;">
-		 	
-			  	<div class="flip-card-inner">
-				    <div class="flip-card-front">
-				      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-				    </div>
-				    <div class="flip-card-back">
-				      <h1>Patativa</h1> 
-				      
-				    </div>
-	  			</div>
-		 
-			   </div>
-		    </div>
-		    
-		    <div class="col-sm">
-		      <div class="card" style="width: 18rem;">
-		 	
-		  	<div class="flip-card-inner">
-			    <div class="flip-card-front">
-			      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-			    </div>
-			    <div class="flip-card-back">
-			      <h1>Patativa</h1> 
-			      
-			    </div>
-  			</div>
-		 
-		</div>
-		    </div>
-		    <div class="col-sm">
-				<div class="card" style="width: 18rem;">
-		 	
-				  	<div class="flip-card-inner">
-					    <div class="flip-card-front">
-					      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-					    </div>
-					    <div class="flip-card-back">
-					      <h1>Patativa</h1> 
-					      
-					    </div>
-		  			</div>
-		 
-				</div>		    
-			</div>
-		</div>
-		<div class="row">
-		    <div class="col-sm">
-		      <div class="card" style="width: 18rem;">
-		 	
-			  	<div class="flip-card-inner">
-				    <div class="flip-card-front">
-				      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-				    </div>
-				    <div class="flip-card-back">
-				      <h1>Patativa</h1> 
-				      
-				    </div>
-	  			</div>
-		 
-			   </div>
-		    </div>
-		    
-		    <div class="col-sm">
-		      <div class="card" style="width: 18rem;">
-		 	
-		  	<div class="flip-card-inner">
-			    <div class="flip-card-front">
-			      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-			    </div>
-			    <div class="flip-card-back">
-			      <h1>Patativa</h1> 
-			      
-			    </div>
-  			</div>
-		 
-		</div>
-		    </div>
-		    <div class="col-sm">
-				<div class="card" style="width: 18rem;">
-		 	
-				  	<div class="flip-card-inner">
-					    <div class="flip-card-front">
-					      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-					    </div>
-					    <div class="flip-card-back">
-					      <h1>Patativa</h1> 
-					      
-					    </div>
-		  			</div>
-		 
-				</div>		    
-			</div>
-		</div>
-		<div class="row">
-		    <div class="col-sm">
-		      <div class="card" style="width: 18rem;">
-		 	
-			  	<div class="flip-card-inner">
-				    <div class="flip-card-front">
-				      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-				    </div>
-				    <div class="flip-card-back">
-				      <h1>Patativa</h1> 
-				      
-				    </div>
-	  			</div>
-		 
-			   </div>
-		    </div>
-		    
-		    <div class="col-sm">
-		      <div class="card" style="width: 18rem;">
-		 	
-		  	<div class="flip-card-inner">
-			    <div class="flip-card-front">
-			      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-			    </div>
-			    <div class="flip-card-back">
-			      <h1>Patativa</h1> 
-			      
-			    </div>
-  			</div>
-		 
-		</div>
-		    </div>
-		    <div class="col-sm">
-				<div class="card" style="width: 18rem;">
-		 	
-				  	<div class="flip-card-inner">
-					    <div class="flip-card-front">
-					      <img src="card.png" class="card-img-top" alt="Avatar" style="width:285px;height:297px;">
-					    </div>
-					    <div class="flip-card-back">
-					      <h1>Patativa</h1> 
-					      
-					    </div>
-		  			</div>
-		 
-				</div>		    
-			</div>
-		</div>
-	</div>
+  <style type="text/css">
+      .card{
+      background-color: transparent;
+      width: 296px;
+      height: 300px;
+      margin-top: 1%;
+    }
+    
+      
+  </style> 
+</head>
+<body>
+ 
+  <!-- Criar esse código abaixo com Jquery--> 
+  <div class="container">
+    <div class="row">
+      <div class="col-sm">
+         
+          <div id="card" class="card"> 
+              <div class="front"> 
+                          <img src="card.png" class="card-img-top"  id="test1"style="width:297px;height:297px;">
+              </div> 
+              <div class="back">
+                          <img src="pat.jpg" class="card-img-top" style="width:297px;height:297px;">
+              </div> 
+          </div>
+      </div>
 
-	</body>
+  		<div class="col-sm">
+         
+          <div id="card2" class="card"> 
+              <div class="front"> 
+                          <img src="card.png" class="card-img-top"  style="width:297px;height:297px;">
+              </div> 
+              <div class="back">
+                          <img src="pat.jpg" class="card-img-top" style="width:297px;height:297px;">
+              </div> 
+          </div>
+      	</div>
+      	<div class="col-sm">
+         
+          <div id="card3" class="card"> 
+              <div class="front"> 
+                          <img src="card.png" class="card-img-top"  style="width:297px;height:297px;">
+              </div> 
+              <div class="back">
+                          <img src="pat.jpg" class="card-img-top" style="width:297px;height:297px;">
+              </div> 
+          </div>
+      	</div>
+
+
+    </div>
+     
+  </div>
+ 
+
+
+
+</body>
 </html>
