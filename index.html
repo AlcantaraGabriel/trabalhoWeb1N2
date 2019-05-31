@@ -3,68 +3,113 @@
 <head>
   <meta charset="utf-8">
   <title>web 2</title>
-  <!--biblioteca Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <!--biblioteca Jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <!--biblioteca Flip -->
-  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script> 
-  
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
   <script>
 
-      $(document).ready(function(){
+        var imgPosiCont = [0,0,0,0,0,0,0,0,0,0,0,0];
+  
+        function faz(){
+                var imgUsadas = [0,0,0,0,0,0,0,0,0]
+                var l =[];
+                sub_s_aux = ""
+                for (var i = 0; i < 6; i++) {
+                    sub_s_aux +="<div class=\"back\"><img src=\"img/";
+                    var x;
+                    do{
+                      x = parseInt(Math.random()*8)
+                    }while(imgUsadas[x]!=0);
+                  
+                    imgUsadas[x]=1;
+                    sub_s_aux+= x+".jpg\" class=\"card-img-top\" style=\"width:297px;height:297px;\"> </div>"
+                    l.push(sub_s_aux);
+                    sub_s_aux = "";
+                }
 
-      	  /*Habilitando flip para cartas*/
-          $(".card").flip({
-            trigger: 'click'//através do click
-			
-          });
+                var imgUsadas2 = [0,0,0,0,0,0];
+                var imgPosi = [0,0,0,0,0,0,0,0,0,0,0,0];
 
+                var i =0;
+                while(i <12) {
+                    var x;
+                    do{
+                        x = parseInt(Math.random()*6);
+                        if (imgUsadas2[x]<=1 && imgPosi[i]==0) {
+                          imgUsadas2[x]++, imgPosi[i] = "l"+x,imgPosiCont[i]=l[x];
+                          i++;
+                        }
+                    }while(imgPosi[i]==0 && i<12);
+                                 
+                }
+               
+                ///parei aqui
+                var s = "";
+                var contPos=0;
+                for (var j =0;j<4 ; j++) {
+                  s+="<div class=\"row\">";
+                  for (var i = 0; i < 3; i++) {
+                    s+="<div class=\"col-sm\"><div id=\""+imgPosi[contPos] +"\" class=\"card\" ><div class=\"front\"><img src=\"card3.png\" class=\"card-img\" id=\""+imgPosi[contPos] +"\"  style=\"width:297px;height:297px;\"></div> ";
+                    s+=imgPosiCont[contPos];
+                    contPos++;
+                    s+="</div></div>";
+                  }
+                  s+="</div>";
+                } 
+                //alert(s);
+                document.getElementById('corpo').innerHTML = s;
+                $(".card").flip();     
+  
+
+
+                var a="-1";
+                var b="-2";
+                
+                  //Função do clique na classe da imagem
+                $(document).ready(function(){
+                $('.card-img').on('click', function(){
+                  //mouse event fired (element clicked)
+                  //alert("Clicou na imagem!");
+
+                  if(a==-1 ){
+                    a = $(this).attr('id');
+                    alert("#"+a);
+                    //a =$(this).closest('[id]');
+                  }else if(b==-2){
+                    b = $(this).attr('id');
+                    //a =$(this).closest('[id]');
+                    if(a==b){
+                    alert("encontrou");
+                      $("#"+b).flip(true);
+
+                      a="-1";
+                      b="-2";
+                    a = $(this).attr('id');
+
+                    }else{
+                      alert("#"+a);
+                                            $("#"+a).flip(false);
+
+                                            $("#"+b).flip(false);
+
+                      a="-1";
+                      b="-2";
+                    }         
+                  }
+
+                });
+                });
+        }
 
        
-          var a="-1";
-          var b="-2";
-          //Função do clique na classe da imagem
-          $(document).ready(function(){
-				$('.card-img').bind('click', function(e){
-					//mouse event fired (element clicked)
-					//alert("Clicou na imagem!");
-
-					alert(a==b);
-					if(a==-1 ){
-						a = $(this).attr('id');
-						//a =$(this).closest('[id]');
-						alert(a);
-					}else if(b==-2){
-						b = $(this).attr('id');
-						//a =$(this).closest('[id]');
-						alert(b);
-						if(a==b){
-						alert("encontrou");
-							a="-1";
-          					b="-2";
-						}else{
-							a="-1";
-          					b="-2";
-          					                      $(".card").flip(false);
-
-						}					 
-					}
-				});
-			});
-
-          //Objetivo automatízar a geração de código
-
-          //Função de sorteamento de imagens
-          		//falta implementar
-
-          //Função de verificar duas imagens iguais 
-          		//falta implementar 
-
-          //Outras funções
-
-      });
+         
   </script>
+
+
+
+  
 
   <style type="text/css">
       .card{
@@ -78,49 +123,15 @@
   </style> 
 </head>
 <body>
- 
-  <!-- Criar esse código abaixo com Jquery--> 
-  <div class="container">
-    <div class="row">
-      <div class="col-sm">
-         
-          <div id="card" class="card"> 
-              <div class="front"> 
-                          <img src="card3.png" class="card-img"  id="t1" style="width:297px;height:297px;">
-              </div> 
-              <div class="back">
-                          <img src="img/1.jpg" class="card-img-top"  style="width:297px;height:297px;" >
-              </div> 
-          </div>
-      </div>
+  <button onclick="faz()">Iniciar</button>
+  <div class="container" id="corpo">
 
-  		<div class="col-sm">
-         
-          <div id="card2" class="card"> 
-              <div class="front"> 
-                          <img src="card3.png" class="card-img"  id="t2" style="width:297px;height:297px;">
-              </div> 
-              <div class="back"  id="p3">
-                          <img src="img/2.jpg" class="card-img-top" style="width:297px;height:297px;">
-              </div> 
-          </div>
-      	</div>
-      	<div class="col-sm">
-         
-          <div id="card3" class="card"> 
-              <div class="front"> 
-                          <img src="card3.png" class="card-img"  style="width:297px;height:297px;">
-              </div> 
-              <div class="back"  id="p3">
-                          <img src="img/3.jpg" class="card-img-top" style="width:297px;height:297px;">
-              </div> 
-          </div>
-      	</div>
+        
 
-
-    </div>
-     
+    
+    
   </div>
+ 
  
 
 
