@@ -17,15 +17,39 @@
       	  /*Habilitando flip para cartas*/
           $(".card").flip({
             trigger: 'click'//através do click
+			
           });
 
-       
 
+       
+          var a="-1";
+          var b="-2";
           //Função do clique na classe da imagem
           $(document).ready(function(){
-				$('.card-img-top').bind('click', function(e){
+				$('.card-img').bind('click', function(e){
 					//mouse event fired (element clicked)
-					alert("Clicou na imagem!");
+					//alert("Clicou na imagem!");
+
+					alert(a==b);
+					if(a==-1 ){
+						a = $(this).attr('id');
+						//a =$(this).closest('[id]');
+						alert(a);
+					}else if(b==-2){
+						b = $(this).attr('id');
+						//a =$(this).closest('[id]');
+						alert(b);
+						if(a==b){
+						alert("encontrou");
+							a="-1";
+          					b="-2";
+						}else{
+							a="-1";
+          					b="-2";
+          					                      $(".card").flip(false);
+
+						}					 
+					}
 				});
 			});
 
@@ -62,10 +86,10 @@
          
           <div id="card" class="card"> 
               <div class="front"> 
-                          <img src="card.png" class="card-img-top"  id="test1"style="width:297px;height:297px;">
+                          <img src="card3.png" class="card-img"  id="t1" style="width:297px;height:297px;">
               </div> 
               <div class="back">
-                          <img src="pat.jpg" class="card-img-top" style="width:297px;height:297px;">
+                          <img src="img/1.jpg" class="card-img-top"  style="width:297px;height:297px;" >
               </div> 
           </div>
       </div>
@@ -74,10 +98,10 @@
          
           <div id="card2" class="card"> 
               <div class="front"> 
-                          <img src="card.png" class="card-img-top"  style="width:297px;height:297px;">
+                          <img src="card3.png" class="card-img"  id="t2" style="width:297px;height:297px;">
               </div> 
-              <div class="back">
-                          <img src="pat.jpg" class="card-img-top" style="width:297px;height:297px;">
+              <div class="back"  id="p3">
+                          <img src="img/2.jpg" class="card-img-top" style="width:297px;height:297px;">
               </div> 
           </div>
       	</div>
@@ -85,10 +109,10 @@
          
           <div id="card3" class="card"> 
               <div class="front"> 
-                          <img src="card.png" class="card-img-top"  style="width:297px;height:297px;">
+                          <img src="card3.png" class="card-img"  style="width:297px;height:297px;">
               </div> 
-              <div class="back">
-                          <img src="pat.jpg" class="card-img-top" style="width:297px;height:297px;">
+              <div class="back"  id="p3">
+                          <img src="img/3.jpg" class="card-img-top" style="width:297px;height:297px;">
               </div> 
           </div>
       	</div>
