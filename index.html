@@ -11,7 +11,7 @@
   <script>
 
         var imgPosiCont = [0,0,0,0,0,0,0,0,0,0,0,0];
-  
+         var c=[];
         function faz(){
                 var imgUsadas = [0,0,0,0,0,0,0,0,0]
                 var l =[];
@@ -51,7 +51,7 @@
                 for (var j =0;j<4 ; j++) {
                   s+="<div class=\"row\">";
                   for (var i = 0; i < 3; i++) {
-                    s+="<div class=\"col-sm\"><div id=\""+imgPosi[contPos] +"\" class=\"card\" ><div class=\"front\"><img src=\"card3.png\" class=\"card-img\" id=\""+imgPosi[contPos] +"\"  style=\"width:297px;height:297px;\"></div> ";
+                    s+="<div class=\"col-sm\"><div id=\""+imgPosi[contPos] +"\" class=\"card\" ><div class=\"front\"><img src=\"card4.png\" class=\"card-img\" id=\""+imgPosi[contPos] +"\"  style=\"width:297px;height:297px;\"></div> ";
                     s+=imgPosiCont[contPos];
                     contPos++;
                     s+="</div></div>";
@@ -61,50 +61,54 @@
                 //alert(s);
                 document.getElementById('corpo').innerHTML = s;
                 $(".card").flip();     
-  
-
-
-                var a="-1";
-                var b="-2";
                 
+
+
+               
+                               
                   //Função do clique na classe da imagem
                 $(document).ready(function(){
-                $('.card-img').on('click', function(){
-                  //mouse event fired (element clicked)
-                  //alert("Clicou na imagem!");
 
-                  if(a==-1 ){
-                    a = $(this).attr('id');
-                    alert("#"+a);
-                    //a =$(this).closest('[id]');
-                  }else if(b==-2){
-                    b = $(this).attr('id');
-                    //a =$(this).closest('[id]');
-                    if(a==b){
-                    alert("encontrou");
-                      $("#"+b).flip(true);
 
-                      a="-1";
-                      b="-2";
-                    a = $(this).attr('id');
 
-                    }else{
-                      alert("#"+a);
-                                            $("#"+a).flip(false);
+                      $('.card-img').on('click', function(){
+                        //mouse event fired (element clicked)
+                        //alert("Clicou na imagem!");
+                        
+                        //$("#"+$(this).attr('id')).flip(false);
 
-                                            $("#"+b).flip(false);
+                        c.push($(this).attr('id'));
+                        alert(c.length);
 
-                      a="-1";
-                      b="-2";
-                    }         
-                  }
+                        $(function() {
 
+                            while(c.length>1){
+                              //alert("oi");
+                              if(c[0]==c[1]){
+                                alert("Encontrou");
+                                        
+                                c = [];
+
+                              }else if(c.length>1){
+                                alert(c[1],c[0]);
+                                $("#"+c[0]).flip(false);
+                                $("#"+c[1]).flip(false); 
+                                c = [];
+                              }
+                            }  
+
+                             });
+                      });
+
+                        
+                  
                 });
-                });
+
+
+
         }
 
-       
-         
+           
   </script>
 
 
@@ -112,6 +116,14 @@
   
 
   <style type="text/css">
+      body {
+        background-image: url(card2.png);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        /* e agora a regra de ouro que fará a imagem ocupar todo o viewport */
+        background-size: 100% 100%;
+    }
+
       .card{
       background-color: transparent;
       width: 296px;
@@ -122,8 +134,8 @@
       
   </style> 
 </head>
-<body>
-  <button onclick="faz()">Iniciar</button>
+<body background="card2.png">
+  <center><button onclick="faz()" type="button" class="btn btn-primary btn-lg">Iniciar</button></center>
   <div class="container" id="corpo">
 
         
