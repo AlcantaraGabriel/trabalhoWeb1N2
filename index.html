@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>web 2</title>
+
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -82,17 +83,20 @@
 
                         $(function() {
 
-                            while(c.length>1){
-                              //alert("oi");
+                            if(c.length>1){
+                              alert("check");
+                              alert(c);
                               if(c[0]==c[1]){
                                 alert("Encontrou");
                                         
                                 c = [];
 
                               }else if(c.length>1){
-                                alert(c[1],c[0]);
+                                //alert("check");
+                                //alert("#"+c[0]);
+                                //alert("#"+c[1]);
                                 $("#"+c[0]).flip(false);
-                                $("#"+c[1]).flip(false); 
+                                $("#"+c[1]).flip(false);
                                 c = [];
                               }
                             }  
@@ -135,13 +139,17 @@
   </style> 
 </head>
 <body background="card2.png">
+  <audio autoplay="autoplay" controls="controls" hidden="true">
+    <source src="audio2.mp3"  />
+
+  </audio>
+
   <center><button onclick="faz()" type="button" class="btn btn-primary btn-lg">Iniciar</button></center>
   <div class="container" id="corpo">
 
         
 
-    
-    
+
   </div>
  
  
