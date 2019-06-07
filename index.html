@@ -32,7 +32,7 @@ while(d2-d < ms);
                     }while(imgUsadas[x]!=0);
                   
                     imgUsadas[x]=1;
-                    sub_s_aux+= x+".jpg\" class=\"card-img-top\" style=\"width:297px;height:297px;\"> </div>"
+                    sub_s_aux+= x+".jpg\" class=\"card-img-top\" style=\"width:100%;height:100%;\"> </div>"
                     l.push(sub_s_aux);
                     sub_s_aux = "";
                 }
@@ -56,11 +56,11 @@ while(d2-d < ms);
                 ///parei aqui
                 var s = "";
                 var contPos=0;
-                for (var j =0;j<4 ; j++) {
+                for (var j =0;j<3 ; j++) {
                   s+="<div class=\"row\">";
-                  for (var i = 0; i < 3; i++) {
+                  for (var i = 0; i < 4; i++) {
                   	//alert(imgPosi[contPos]+contPos);
-                    s+="<div class=\"col-sm\"><div id=\""+imgPosi[contPos]+contPos +"\" class=\"card\" ><div class=\"front\"><img src=\"card4.png\" class=\"card-img\" id=\""+imgPosi[contPos]+contPos +"\"  style=\"width:297px;height:297px;\"></div> ";
+                    s+="<div class=\"col-sm\"><div id=\""+imgPosi[contPos]+contPos +"\" class=\"card\" ><div class=\"front\"><img src=\"card4.png\" class=\"card-img\" id=\""+imgPosi[contPos]+contPos +"\"  style=\"width:100%;height:100%;\"></div> ";
                     s+=imgPosiCont[contPos];
                     contPos++;
                     s+="</div></div>";
@@ -69,18 +69,10 @@ while(d2-d < ms);
                 } 
                 //alert(s);
                 document.getElementById('corpo').innerHTML = s;
-                $(".card").flip();     
-                
-
-
-               
-                               
+                $(".card").flip();                 
                   //Função do clique na classe da imagem
                 $(document).ready(function(){
-
-
-
-                      $('.card-img').on('click', function(){
+                $('.card-img').on('click', function(){
                         //mouse event fired (element clicked)
                         //alert("Clicou na imagem!");
                         
@@ -142,8 +134,8 @@ while(d2-d < ms);
 
       .card{
       background-color: transparent;
-      width: 296px;
-      height: 300px;
+      width: 150px;
+      height: 150px;
       margin-top: 1%;
     }
     
