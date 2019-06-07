@@ -11,6 +11,13 @@
   <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
   <script>
 
+  	function wait(ms)
+{
+var d = new Date();
+var d2 = null;
+do { d2 = new Date(); }
+while(d2-d < ms);
+}
         var imgPosiCont = [0,0,0,0,0,0,0,0,0,0,0,0];
          var c=[];
         function faz(){
@@ -52,7 +59,8 @@
                 for (var j =0;j<4 ; j++) {
                   s+="<div class=\"row\">";
                   for (var i = 0; i < 3; i++) {
-                    s+="<div class=\"col-sm\"><div id=\""+imgPosi[contPos] +"\" class=\"card\" ><div class=\"front\"><img src=\"card4.png\" class=\"card-img\" id=\""+imgPosi[contPos] +"\"  style=\"width:297px;height:297px;\"></div> ";
+                  	//alert(imgPosi[contPos]+contPos);
+                    s+="<div class=\"col-sm\"><div id=\""+imgPosi[contPos]+contPos +"\" class=\"card\" ><div class=\"front\"><img src=\"card4.png\" class=\"card-img\" id=\""+imgPosi[contPos]+contPos +"\"  style=\"width:297px;height:297px;\"></div> ";
                     s+=imgPosiCont[contPos];
                     contPos++;
                     s+="</div></div>";
@@ -79,14 +87,16 @@
                         //$("#"+$(this).attr('id')).flip(false);
 
                         c.push($(this).attr('id'));
-                        alert(c.length);
-
+                        //alert(c.length);
+                        
                         $(function() {
-
+                        	
                             if(c.length>1){
-                              alert("check");
-                              alert(c);
-                              if(c[0]==c[1]){
+                              //alert("check");
+                              //alert(c[0].substrg(0,2));
+
+                              if(c[0].substring(0,2)==c[1].substring(0,2)){
+                                wait(1000);
                                 alert("Encontrou");
                                         
                                 c = [];
@@ -95,6 +105,8 @@
                                 //alert("check");
                                 //alert("#"+c[0]);
                                 //alert("#"+c[1]);
+                                wait(1000);
+
                                 $("#"+c[0]).flip(false);
                                 $("#"+c[1]).flip(false);
                                 c = [];
