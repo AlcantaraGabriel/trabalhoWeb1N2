@@ -11,13 +11,12 @@
   <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
   <script>
 
-  	function wait(ms)
-{
-var d = new Date();
-var d2 = null;
-do { d2 = new Date(); }
-while(d2-d < ms);
-}
+	  	function wait(ms){
+			var d = new Date();
+			var d2 = null;
+			do { d2 = new Date(); }
+			while(d2-d < ms);
+		}
         var imgPosiCont = [0,0,0,0,0,0,0,0,0,0,0,0];
          var c=[];
         function faz(){
@@ -139,33 +138,36 @@ while(d2-d < ms);
       margin-top: 1%;
     }
     
+    #canalImg{
+    	margin-left: 93%;
+    	
+
+    }
+   
       
   </style> 
+    
 </head>
 <body background="card2.png">
-	<a href="https://www.youtube.com/channel/UC3zlt0YbgWNlNTnWNVbKYcg">
-<img border="0" alt="Os Cearenses - Fundação Demócrito Rocha" src="canal.jpg" width="90" height="90"></a><br>
-  <audio autoplay="autoplay" controls="controls" hidden="true">
-    <source src="audio2.mp3"  />
+	
+	
 
-  </audio>
+	<audio autoplay="autoplay" controls="controls" id="audioS">
+	    <source src="audio2.mp3"/>
+	</audio>
 
-  <center>
-  	
-  	<button onclick="faz()" type="button" class="btn btn-primary btn-lg" >Iniciar</button>
+	<center>
+	  	<button onclick="faz()" type="button" class="btn btn-primary btn-lg" >Iniciar</button>
+	</center>
 
-  </center>
-
-  <div class="container" id="corpo">
-
-        
-
-
-  </div>
- 
+	<div class="container" id="corpo">
+	</div><br><br>
+	 
  
 
-
+	<a href="https://www.youtube.com/channel/UC3zlt0YbgWNlNTnWNVbKYcg" >
+		<img border="0" alt="Os Cearenses - Fundação Demócrito Rocha" src="canal.jpg" width="70" height="70" id="canalImg">
+	</a>
 
 </body>
 </html>
