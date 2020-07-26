@@ -19,6 +19,11 @@
 		}
         var imgPosiCont = [0,0,0,0,0,0,0,0,0,0,0,0];
          var c=[];
+
+        function reiniciar(){
+          window.location.reload(true);
+        }
+
         function faz(){
                 var imgUsadas = [0,0,0,0,0,0,0,0,0]
                 var l =[];
@@ -151,12 +156,14 @@
 <body background="card2.png">
 	
 	
-
+  
 	<audio controls="controls" id="audioS" src="audio2.mp3" autoplay>
-	</audio>
+    O seu navegador não suporta o elemento <code>audio</code>. 
+  </audio>
 
 	<center>
-	  	<button onclick="faz()" type="button" class="btn btn-primary btn-lg" >Iniciar</button>
+      <button onclick="faz()" type="button" class="btn btn-primary btn-lg" >Iniciar</button>
+      <button onclick="reiniciar()" type="button" class="btn btn-primary btn-lg" >Reiniciar</button>
 	</center>
 
 	<div class="container" id="corpo">
